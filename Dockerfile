@@ -14,7 +14,7 @@ COPY build.gradle settings.gradle ./
 RUN gradle dependencies --no-daemon -q
 
 # Copy mã nguồn rồi đóng gói file JAR (bỏ qua test)
-COPY src/ ./src
+COPY src ./src
 RUN gradle bootJar -x test --no-daemon -q
 
 # ---------- Stage 2: runtime - chỉ chứa JRE 21 + file JAR ----------
